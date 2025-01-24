@@ -1,6 +1,3 @@
-// canExecuteFastAttack();
-// canSpy();
-//---------------------------------------------------------------------------------------------------------------
 let array = [];
 
 for(let i = 0; i <= 20; i++) { 
@@ -41,5 +38,63 @@ function canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake) {
     }  
 }
 
+function canSignalPrisoner(archerIsAwake, prisonerIsAwake) {
+    archerIsAwake = array[Math.floor(Math.random() * array.length)];
+    prisonerIsAwake = array[Math.floor(Math.random() * array.length)];
 
-console.log();
+    if(archerIsAwake === false && prisonerIsAwake === true){
+        console.log("Ação de Sinalizar o Prisioneiro está disponível");
+        return true;
+    } else if(archerIsAwake === true || prisonerIsAwake === false) {
+        console.log("Ação de Sinalizar o Prisioneiro não disponível");
+        return false;
+    }
+}
+
+function canFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent) {
+    knightIsAwake = array[Math.floor(Math.random() * array.length)];
+    archerIsAwake = array[Math.floor(Math.random() * array.length)];
+    prisonerIsAwake = array[Math.floor(Math.random() * array.length)];
+    petDogIsPresent = array[Math.floor(Math.random() * array.length)];
+
+    if(knightIsAwake === false && archerIsAwake === false && prisonerIsAwake === false && petDogIsPresent === false) {
+        return false;
+    } else if(knightIsAwake === false && archerIsAwake === true && prisonerIsAwake === false && petDogIsPresent === false) {
+        return false;
+    } else if(knightIsAwake === false && archerIsAwake === true && prisonerIsAwake === false && petDogIsPresent === true) {
+        return false;
+    } else if(knightIsAwake === false && archerIsAwake === true && prisonerIsAwake === true && petDogIsPresent === false) {
+        return false
+    } else if(knightIsAwake === false && archerIsAwake === true && prisonerIsAwake === true && petDogIsPresent === true) {
+        return false;
+    } else if(knightIsAwake === true && archerIsAwake === false && prisonerIsAwake === true && petDogIsPresent === false) {
+        return false;
+    } else if(knightIsAwake === true && archerIsAwake === false && prisonerIsAwake === false && petDogIsPresent === false) {
+        return false;
+    } else if(knightIsAwake === true && archerIsAwake === true && prisonerIsAwake === false && petDogIsPresent === false) {
+        return false;
+    } else if(knightIsAwake === true && archerIsAwake === true && prisonerIsAwake === false && petDogIsPresent === true) {
+        return false;
+    } else if(knightIsAwake === true && archerIsAwake === true && prisonerIsAwake === false && petDogIsPresent === true) {
+        return false;
+    } else if(knightIsAwake === true && archerIsAwake === true && prisonerIsAwake === true && petDogIsPresent === false) {
+        return false;
+    } else if(knightIsAwake === true && archerIsAwake === true && prisonerIsAwake === true && petDogIsPresent === true) {
+        return false;
+    } else if(knightIsAwake === false && archerIsAwake === false && prisonerIsAwake === false && petDogIsPresent === true) {
+        return true;
+    } else if(knightIsAwake === false && archerIsAwake === false && prisonerIsAwake === true && petDogIsPresent === false) {
+        return true;
+    } else if(knightIsAwake === false && archerIsAwake === false && prisonerIsAwake === true && petDogIsPresent === true) {
+        return true;
+    } else if(knightIsAwake === true && archerIsAwake === false && prisonerIsAwake === false && petDogIsPresent === true) {
+        return true;
+    } else if(knightIsAwake === true && archerIsAwake === false && prisonerIsAwake === true && petDogIsPresent === true) {
+        return true;
+    }
+} 
+
+canExecuteFastAttack();
+canSpy();
+canSignalPrisoner();
+canFreePrisoner();
